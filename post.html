@@ -1,0 +1,15 @@
+		{% if page.redirect %}
+		<script type="text/javascript">
+		function CopyToClipboard(){
+			var textArea = document.createElement("textarea");
+			textArea.value = "{{site.url}}{{page.redirect}}"
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand('copy');
+			document.body.removeChild(textArea);
+			alert("Ссылка транслитом в буфере обмена.");
+		}</script>
+		<a onclick="CopyToClipboard()">{{ page.title }}</a> 
+		{% else %}
+		<a href="{{ page.url }}">{{ page.title }}</a> 
+		{% endif %}
